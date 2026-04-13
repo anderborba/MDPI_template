@@ -176,7 +176,25 @@ I only ask the authors to make some changes in the paper title and abstract to s
 
 \begin{tcolorbox}[colback=white,colframe=black,title=Changes 1]
 Thank you very much for your contribution. The authors fully agree
-with the suggestion, and we have made the following modification in the Title and Abstract:
+with the suggestion, and we have made the following modifications.
+
+New Title: Fast Spatial Denoising for Repeat-Pass InSAR Data via Empirical Statistical Modeling
+
+In the abstract, we now clarify that
+\begin{quote}
+Repeat-pass SAR interferometry (InSAR) provides a framework for extracting high-resolution topographic information and detecting surface deformation. 
+By analyzing the phase difference between radar acquisitions obtained at different times, one can characterize landscape geometry and surface changes. 
+However, inherent phase noise often compromises the reliability of the resulting interferometric products. 
+Consequently, there is a sustained need for spatial filtering techniques that suppress noise while preserving structural integrity and resolution.
+%
+This work evaluates three statistically-based spatial filters. 
+We examine a model derived from the physical properties of coherent illumination (the Gierull model) and compare it against two empirical alternatives: the truncated wrapped normal (TcN) and the truncated wrapped Cauchy (TcC) distributions. 
+These empirical models reduce computational demand without degrading the quality of the filtered phase.
+%
+We assess performance using a simulated dataset for objective validation alongside  InSAR imagery of La Cumbre volcano, Los Alamos, and Robledo volcano. 
+While the proposed models demonstrate significant gains in computational efficiency compared to current methods, we identify numerical integration as a primary bottleneck in the filtering process; this challenge warrants further investigation. 
+Our results indicate that empirical statistical models provide a viable path for accelerated InSAR processing with accuracy equivalent to traditional, computationally intensive approaches.
+\end{quote}
 
 \end{tcolorbox}
 

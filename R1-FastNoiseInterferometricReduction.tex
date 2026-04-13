@@ -88,10 +88,10 @@
 %=================================================================
 % Full title of the paper (Capitalized)
 %%% AAB - Repensar o título, pois usamos também nos resultados pdf físicas.
-\Title{Fast Noise Reduction in InSAR Data with Empirical Statistical Models}
+\Title{Fast Spatial Denoising for Repeat-Pass InSAR Data via Empirical Statistical Modeling}
 
 % MDPI internal command: Title for citation in the left column
-\TitleCitation{Fast Noise Reduction in InSAR Data with Empirical Statistical Models}
+\TitleCitation{Fast Spatial Denoising for Repeat-Pass InSAR Data via Empirical Statistical Modeling}
 
 % Author Orchid ID: enter ID or remove command
 %\newcommand{\orcidauthorA}{0000-0002-7849-9572} % Add \orcidA{} behind the author's name
@@ -156,26 +156,22 @@
 
 % Abstract (Do not insert blank lines, i.e. \\) 
 \abstract{
-SAR interferometry images (InSAR) enable the extraction of detailed information from
-Earth’s surface, including high-resolution topographic maps and precise deformation
-detection, among other applications. 
+Repeat-pass SAR interferometry (InSAR) provides a framework for extracting high-resolution topographic information and detecting surface deformation. 
+By analyzing the phase difference between radar acquisitions obtained at different times, one can characterize landscape geometry and surface changes. 
+However, inherent phase noise often compromises the reliability of the resulting interferometric products. 
+Consequently, there is a sustained need for spatial filtering techniques that suppress noise while preserving structural integrity and resolution.
 %
-However, the inherent noise in interferometric images significantly compromises the accuracy and reliability of the resulting data products. Consequently, the development of advanced InSAR filtering techniques has become a focal point for researchers aiming to suppress noise while simultaneously preserving fine details, spatial resolution, and structural integrity. This article evaluates the performance of three distinct filtering approaches: a model based on the physical characteristics of sensing with coherent illumination, known as the Gierull model, and two empirical models, the truncated wrapped normal (TcN) and truncated wrapped Cauchy (TcC) distributions.
+This work evaluates three statistically-based spatial filters. 
+We examine a model derived from the physical properties of coherent illumination (the Gierull model) and compare it against two empirical alternatives: the truncated wrapped normal (TcN) and the truncated wrapped Cauchy (TcC) distributions. 
+These empirical models reduce computational demand without degrading the quality of the filtered phase.
 %
-These models drastically reduce the processing time without compromising the results. To
-confirm this affirmation, we use four types of test images, including a simulated dataset for
-goal validation of the proposed methods. We use La Cumbre volcano, Los Alamos, and
-Robledo volcano InSAR images to evaluate performance on real InSAR images.
-%
-The study found a bottleneck in the computational cost of numerical integration, which the empirical
-models impose on the filtering, a topic that requires further investigation.
-%
-In this article, the authors propose three new techniques that demonstrate great computational efficiency
-compared to the cutting-edge methods for filtering InSAR images with equivalent accuracy.
+We assess performance using a simulated dataset for objective validation alongside  InSAR imagery of La Cumbre volcano, Los Alamos, and Robledo volcano. 
+While the proposed models demonstrate significant gains in computational efficiency compared to current methods, we identify numerical integration as a primary bottleneck in the filtering process; this challenge warrants further investigation. 
+Our results indicate that empirical statistical models provide a viable path for accelerated InSAR processing with accuracy equivalent to traditional, computationally intensive approaches.
 }
 
 % Keywords
-\keyword{InSAR; phase noise filtering; empirical and physical statistical models; coherence estimation; computational efficiency} 
+\keyword{Repeat-pass InSAR; phase noise filtering; empirical and physical statistical models; coherence estimation; computational efficiency} 
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -256,6 +252,8 @@ compared to the cutting-edge methods for filtering InSAR images with equivalent 
 \begin{itemize}[label=$\bullet$]
 \item We quantified the differences between the Lee and Gierull models (a complete model and a model with a restricted parameter space) for InSAR data.
  
+\item The physical model with restricted parameter space can be safely used in InSAR applications.
+
 \item We proposed two new filters for noise reduction based on the truncated wrapped normal (TcN) and truncated wrapped Cauchy (TcC) models.
 
 \item We show that these empirical models produce results as good as the physical one, with a significant reduction in computational time.
@@ -263,7 +261,6 @@ compared to the cutting-edge methods for filtering InSAR images with equivalent 
 %
 \subsection*{The implications of the main findings of this research.}
 \begin{itemize}[label=$\bullet$]
-    \item The physical model with restricted parameter space can be safely used in InSAR applications.
     \item The methodologies based on empirical models provide a favorable trade-off between residual suppression and computational efficiency.
 \end{itemize}
 %
