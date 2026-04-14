@@ -286,7 +286,11 @@ Such capability is crucial for detecting slow‑moving deformation signals and i
 
 To address the demand for fast and effective interferometric phase-filtering techniques, we propose three novel filters: a filter based on the Gierull model (LInSARRFE), a filter based on the truncated wrapped normal model (TcNfilter), and a filter based on the truncated wrapped Cauchy model (TcCfilter). The LInSARRFE filter is derived from a physically based probability distribution that models SAR signal formation and its representation as a phase image, specifically following Gierull Model. In contrast, the TcNfilter and TcCfilter rely on empirical probability distributions designed to minimize computational complexity; these are based on the truncated wrapped normal (TcN) and truncated wrapped Cauchy distributions (TcC), respectively. 
 
-One important aspect of filtering methods is the distribution model used for the probability density function (PDF). In a series of articles by Lee~\cite{ImprovedSigmaFilterforSpeckleFilteringofSARImagery, AnewtechniquefornoisefilteringofSARinterferometricphasimages, RefinedFilteringofInterferometricPhaseFromInSARData}, the Lee Filter and its variants were proposed, based on a model grounded in the physical properties of SAR image theory. The model was proposed in the article by~\cite{IntensityAndPhaseStatisticsOfMultilookPolarimetricAndInterferometricSARimagery}. Gierrull, in the article, proposed a similar model that we used to construct the filter based on the problem's physics, as introduced in this article. On the other hand, given the periodic nature of the phase data in InSAR images, we proposed using empirical circular models to replace the Lee model in the filtering methods described. The circular models are described in~\cite{CircularStatisticsinR}.
+One important aspect of filtering methods is the probability model. 
+In a series of articles by Lee~\cite{ImprovedSigmaFilterforSpeckleFilteringofSARImagery, AnewtechniquefornoisefilteringofSARinterferometricphasimages, RefinedFilteringofInterferometricPhaseFromInSARData}, the Lee Filter and its variants were proposed, based on a model grounded in the physical properties of SAR image theory. 
+The model was proposed in the article by~\cite{IntensityAndPhaseStatisticsOfMultilookPolarimetricAndInterferometricSARimagery}. 
+Gierrull proposed a similar model that we used to construct the filter based on the problem's physics, as introduced in this article. 
+On the other hand, given the periodic nature of the phase data in InSAR images, we proposed using empirical circular models to replace the Lee model in the filtering methods described. The circular models are described in~\cite{CircularStatisticsinR}.
 
 
 These results provide efficient and robust alternatives for InSAR data processing, especially in applications requiring high‑speed analysis.
@@ -925,7 +929,8 @@ Assume a sample of observed phases is selected, denoted by $\bm{\psi'} = (\psi'_
 \begin{equation}\label{Eq_limite_fase}
 	F(\psi_\xi) - F(-\psi_\xi) = \xi,
 \end{equation}
-where $F$ is the Cumulative Distribution Function (CDF) of the adopted model. According to Chao et al. to~\cite{RefinedFilteringofInterferometricPhaseFromInSARData}, the value of $\psi_\xi$ can be numerically obtained from $\xi$ for all pixels. 
+where $F$ is the cumulative distribution function (CDF) of the adopted model. 
+According to \citet{RefinedFilteringofInterferometricPhaseFromInSARData}, the value of $\psi_\xi$ can be numerically obtained from $\xi$ for all pixels. 
 In other words, the phase limit can be computed only once for the entire image, and the authors propose $\xi=0.9$ as the optimal value.
 
 We present three methods for phase noise filtering: TcNfilter, TcCfilter, and LInSARRFE. 
