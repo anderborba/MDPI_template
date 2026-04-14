@@ -237,7 +237,7 @@ Plain. J geovis spat anal 10, 5 (2026). https://doi.org/10.1007/s41651-025-00246
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white,colframe=black,title=Changes 1]
-
+We have added those references in a new category of phase denoising.
 \end{tcolorbox}
 
 
@@ -255,25 +255,7 @@ discussed in the introduction.
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white,colframe=black,title=Changes 2]
-Thank you very much for your contribution. The authors fully agree with the suggestion, and we have made the following modification in the introduction:
-
-To address the \DIFdelbegin \DIFdel{need }\DIFdelend \DIFaddbegin \DIFadd{demand }\DIFaddend for fast and effective interferometric \DIFdelbegin \DIFdel{phase‑filtering }\DIFdelend \DIFaddbegin \DIFadd{phase-filtering }\DIFaddend techniques, we propose three \DIFdelbegin \DIFdel{new filters: LInSARRFE, TcNfilter, and TcCfilter.
-LInSARRFE }\DIFdelend \DIFaddbegin \DIFadd{novel filters: a filter based on the Gierull model (LInSARRFE), a filter based on the truncated wrapped normal model (TcNfilter), and a filter based on the truncated wrapped Cauchy model (TcCfilter). The LInSARRFE filter }\DIFaddend is derived from a physically based probability distribution that models SAR signal formation and its representation as a phase image\DIFdelbegin \DIFdel{.
-}\DIFdelend \DIFaddbegin \DIFadd{, specifically following Gierull Model. In contrast, the }\DIFaddend TcNfilter and TcCfilter \DIFdelbegin \DIFdel{, in contrast, }\DIFdelend rely on empirical probability distributions designed to \DIFdelbegin \DIFdel{reduce computational complexity.
-}\DIFdelend \DIFaddbegin \DIFadd{minimize computational complexity; these are based on the truncated wrapped normal (TcN) and truncated wrapped Cauchy distributions (TcC), respectively. 
-}
-
-\DIFadd{One important aspect of filtering methods is the distribution model used for the probability density function (PDF). In a series of articles by Lee~\mbox{%DIFAUXCMD
-\cite{ImprovedSigmaFilterforSpeckleFilteringofSARImagery, AnewtechniquefornoisefilteringofSARinterferometricphasimages, RefinedFilteringofInterferometricPhaseFromInSARData}}\hskip0pt%DIFAUXCMD
-, the Lee Filter and its variants were proposed, based on a model grounded in the physical properties of SAR image theory. The model was proposed in the article by~\mbox{%DIFAUXCMD
-\cite{IntensityAndPhaseStatisticsOfMultilookPolarimetricAndInterferometricSARimagery}}\hskip0pt%DIFAUXCMD
-. Gierrull, in the article, proposed a similar model that we used to construct the filter based on the problem's physics, as introduced in this article. On the other hand, given the periodic nature of the phase data in InSAR images, we proposed using empirical circular models to replace the Lee model in the filtering methods described. The circular models are described in~\mbox{%DIFAUXCMD
-\cite{CircularStatisticsinR}}\hskip0pt%DIFAUXCMD
-.
-}
-
-
-
+We reshaped our introduction to better reflect our contribution.
 \end{tcolorbox}
 
 
@@ -282,7 +264,7 @@ LInSARRFE }\DIFdelend \DIFaddbegin \DIFadd{novel filters: a filter based on the 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment 3]
-3. The comparative evaluation is too limited.At present, the main benchmark is
+3. The comparative evaluation is too limited. At present, the main benchmark is
 the Refined Lee filter, which the authors use as the state-of-the-art reference. However,
 the introduction itself acknowledges that InSAR phase filtering methods include
 spatial-domain, transform-domain, and non-local approaches. The manuscript would
@@ -293,7 +275,8 @@ with Refined Lee.
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white,colframe=black,title=Changes 3]
-While we appreciate the reviewer’s suggestion, we wish to emphasize that the novelty of this research does not stem from improved denoising over previous filters, but rather from the optimization of the underlying model. 
+While we appreciate the reviewer’s suggestion, we wish to emphasize that the novelty of this research does not stem from improved denoising over previous filters, but rather from the optimization of the underlying model with execution speed in mind.
+The new introduction makes this clear.
 This approach allows for substantial reductions in processing time while maintaining the high standards of result quality expected from established techniques. 
 Because our contribution is centered on this structural replacement and its subsequent efficiency gains, we prefer to exclude comparisons with filters from different domains, as such metrics would not accurately reflect the specific modeling advancements achieved in this research.
 \end{tcolorbox}
@@ -381,7 +364,8 @@ the directional window strategy.
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white,colframe=black,title=Changes 5]
-Thank you very much for your contribution. The authors fully agree with the suggestion, and we have made the following modification in Methodological Contributions section:
+We have now clarified that the filters are comparable regarding their execution times because we have fixed as benchmark the Refined Lee filter on top of an adaptive window scheme.
+All other filters use the same adaptive window scheme, while changing the statistical model.
 
 \DIFadd{The }\DIFaddend Refined Lee InSAR filter was chosen as the \DIFdelbegin \DIFdel{sole }\DIFdelend benchmark because it’s the \DIFdelbegin \DIFdel{basic }\DIFdelend \DIFaddbegin \DIFadd{widely employed }\DIFaddend spatial-domain statistical filtering method from which both the Enhanced Refined Lee variant and the methods in this work are derived. A \DIFdelbegin \DIFdel{wider }\DIFdelend \DIFaddbegin \DIFadd{broader }\DIFaddend comparison of all Lee filter variants is beyond the scope of this study and \DIFdelbegin \DIFdel{is a potential }\DIFdelend \DIFaddbegin \DIFadd{warrants }\DIFaddend future investigation.
 

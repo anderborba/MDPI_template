@@ -285,18 +285,19 @@ NISAR is expected to produce approximately \qty{80}{\tera\byte} of data per day,
 The enormous quantity of forthcoming data highlights the urgent need InSAR denoising techniques that are not only accurate but also computationally efficient. 
 Such capability is crucial for detecting slow‑moving deformation signals and identifying precursory patterns associated with earthquakes, landslides, volcanic unrest, and post‑hazard residual motion, information essential for safeguarding human life and infrastructure.
 
-Existing InSAR filtering techniques can be broadly categorized into three groups:
-Spatial‑domain methods, such as Boxcar, median, mean, Lee InSAR, and Refined Lee InSAR;
-Transform‑domain methods, such as the Goldstein filter; and
-Non‑local approaches that exploit image redundancy~\cite{ANonlocalInSARFilterforHighResolutionDEMGenerationfromTanDEMXInterferograms}.
-Among these three groups, our research focuses on spatial-domain filters grounded in statistical modeling. 
+Existing InSAR filtering techniques can be broadly categorized into four groups:
+(1)~Spatial‑domain methods, such as Boxcar, median, mean, Lee InSAR, and Refined Lee InSAR;
+(2)~Transform‑domain methods, such as the Goldstein filter;
+(3)~Non‑local approaches that exploit image redundancy~\cite{ANonlocalInSARFilterforHighResolutionDEMGenerationfromTanDEMXInterferograms}, and, more recently,
+(4)~Deep Learning-based techniques~\cite{DBPFNetaDoubleBranchParallelFusionNeuralNetworkMethodforLandSubsidenceSusceptibilityMappingwithInSARObservationData,IntegratingExplainableMachineLearningandLSTMwithMultipleFactorsforMechanismIdentificationandPredictionofLandDeformationintheNorthHenanPlain}.
+Among these groups, our research focuses on spatial-domain filters grounded in statistical modeling. 
 
 Probabilistic models are the core of spatial statistical filters.
 \citet{IntensityAndPhaseStatisticsOfMultilookPolarimetricAndInterferometricSARimagery} obtained a statistical model for the interferometric phase grounded on the physics of the image formation.
 The Lee filter its variants~\cite{ImprovedSigmaFilterforSpeckleFilteringofSARImagery, AnewtechniquefornoisefilteringofSARinterferometricphasimages, RefinedFilteringofInterferometricPhaseFromInSARData} followed this proposal. 
 \citet{ClosedFormExpressionsforInSARSampleStatisticsandItsApplicationtoNonGaussianData} derived another version of Lee et al.'s model by restricting the parameter space.
 Faster and numerically more stable filters can be implemented with this version, but how close it is from the ``full parametric space'' model remains an open question.
-Recent work continues to explore efficient alternatives to these classical models~\citep{AngularConsistencyAdaptiveFilteringandComplexGeneralizedGaussianBasedPhaseLinkingforDSInSAR,CLTCPLaRobustMathematicalFrameworkandAlgorithmforInSARPhaseLinkingUsingtheCentralLimitTheoremofCircularStatistics}.
+Recent works explore alternatives to those classical approaches~\citep{AngularConsistencyAdaptiveFilteringandComplexGeneralizedGaussianBasedPhaseLinkingforDSInSAR,CLTCPLaRobustMathematicalFrameworkandAlgorithmforInSARPhaseLinkingUsingtheCentralLimitTheoremofCircularStatistics}.
 
 With the time execution problem in mind, we propose using empirical circular models to replace the Lee et al.'s and Gierull models in consolidated denoising techniques.
 %The circular models are described in~\cite{CircularStatisticsinR}.
@@ -305,8 +306,8 @@ one based on the Gierull model (LInSARRFE), the baseline, and
 two new that employ empirical truncated distributions.
 Our filters are based on the truncated wrapped normal (TcNfilter) and on the truncated wrapped Cauchy (TcCfilter) models. 
 
-The common denoising infrastructure is an adaptive filtering framework that adjusts to local phase variability.
-Along with the Gierull's model, it is our reference baseline, given its established role as a benchmark in InSAR data filtering.
+The common denoising infrastructure that allows us to compare the running times is an adaptive filtering framework that adjusts to local phase variability.
+The Lee et al.'s model and this infrastructure comprise our reference baseline, given their established role as a benchmark in InSAR data filtering.
 We show that TcNfilter and TcCfilter are significantly faster than the one based on Gierull's model without compromising the quality of the results.
 Additionally, we discuss how close the Gierull and Lee et al.'s models are.
 
@@ -777,7 +778,7 @@ Thus, it is not possible to calculate the distance between the expressions.
 %	\label{ajuste_dKL_fisicos} % label da figura toda
 %\end{figure}
 
-%In the Figures~\ref{p3},~\ref{p4},~\ref{p5} and~\ref{p6}, we can see a strong similarity between the models; in these cases, the lines overlap. With the goal of better understanding the behavior, we designed the following graphics. 
+%In the Figures~\ref{p3}, \ref{p4}, \ref{p5} and~\ref{p6}, we can see a strong similarity between the models; in these cases, the lines overlap. With the goal of better understanding the behavior, we designed the following graphics. 
 Figure~\ref{erro_modelos} shows the pointwise absolute errors between the expression in~\eqref{subsec:sec3.2.1_cap3Eq7}, indexed by $L = 3.49, 5.49, 7.49, 9.49$, and the expression in~\eqref{subsec:sec3.2.1_cap3Eq8}, fixing $L = 3, 5, 7, 9$. 
 
 \begin{figure}[hbt]
@@ -792,7 +793,7 @@ The largest error occurs when $L = 3$ for the model in~\eqref{subsec:sec3.2.1_ca
 The decrease in error as the value of $L$ increases suggests that, for integer values of $L$ greater than 1, the use of the model in~\eqref{subsec:sec3.2.1_cap3Eq8} does not result in a significant loss of accuracy compared to the model in~\eqref{subsec:sec3.2.1_cap3Eq7}. 
 As the number of looks increases, the accuracy of the model in~\eqref{subsec:sec3.2.1_cap3Eq8} improves, resulting in smaller absolute differences between the models.
 
-%In the Figures~\ref {p3},~\ref{p4},~\ref{p5} and~\ref{p6} we can see a great similarity between the models; in these cases, the lines in the graphics are overcome. With the goal of better understanding the behavior, we designed the following graphics. Therefore, Figure~\ref{erro_modelos} shows the pointwise absolute errors between the expression in~\eqref{subsec:sec3.2.1_cap3Eq7}, indexed by $L = 3.49; 5.49; 7.49; 9.49$, and the expression in~\eqref{subsec:sec3.2.1_cap3Eq8}, assuming $L = 3; 5; 7; 9$. As observed in Figure~\ref{erro_modelos}, the decrease in error as the value of $L$ increases suggests that, for integer values of $L$ greater than 1, the use of the model in~\eqref{subsec:sec3.2.1_cap3Eq8} does not result in a significant loss of accuracy compared to the model in~\eqref{subsec:sec3.2.1_cap3Eq7}. As the number of looks increases, the accuracy of the model in~\eqref{subsec:sec3.2.1_cap3Eq8} approaches or converges to that of the model in~\eqref{subsec:sec3.2.1_cap3Eq7}, resulting in smaller absolute differences between the models.
+%In the Figures~\ref {p3}, \ref{p4}, \ref{p5} and~\ref{p6} we can see a great similarity between the models; in these cases, the lines in the graphics are overcome. With the goal of better understanding the behavior, we designed the following graphics. Therefore, Figure~\ref{erro_modelos} shows the pointwise absolute errors between the expression in~\eqref{subsec:sec3.2.1_cap3Eq7}, indexed by $L = 3.49; 5.49; 7.49; 9.49$, and the expression in~\eqref{subsec:sec3.2.1_cap3Eq8}, assuming $L = 3; 5; 7; 9$. As observed in Figure~\ref{erro_modelos}, the decrease in error as the value of $L$ increases suggests that, for integer values of $L$ greater than 1, the use of the model in~\eqref{subsec:sec3.2.1_cap3Eq8} does not result in a significant loss of accuracy compared to the model in~\eqref{subsec:sec3.2.1_cap3Eq7}. As the number of looks increases, the accuracy of the model in~\eqref{subsec:sec3.2.1_cap3Eq8} approaches or converges to that of the model in~\eqref{subsec:sec3.2.1_cap3Eq7}, resulting in smaller absolute differences between the models.
 
 %The absolute error reflects the numerical discrepancy between the predicted results and the actual values. 
 %According to Figure~\ref{erro_modelos}, 
@@ -1024,7 +1025,7 @@ Table~\ref{tab:filters_param} shows the setup parameters of the filters for each
 		\textbf{\makecell{Los Alamos}} & 
 		\textbf{\makecell{Robledo}} \\
 		\midrule
-		Ref. Lee & $\theta=0$, $L=16$ & $\theta=0$, $L=16$ & $\theta=0$, $L=8$ & $\theta=0$, $L=8$ \\
+		Refined Lee & $\theta=0$, $L=16$ & $\theta=0$, $L=16$ & $\theta=0$, $L=8$ & $\theta=0$, $L=8$ \\
 		LInSARRFE    & $\theta=0$, $L=16$ & $\theta=0$, $L=16$ & $\theta=0$, $L=8$ & $\theta=0$, $L=8$  \\
 		TcNfilter    & $\mu=0$ & $\mu=0$ & $\mu=0$ & $\mu=0$ \\
 		TcCfilter    & $\mu=0$ & $\mu=0$ & $\mu=0$ & $\mu=0$  \\
@@ -1079,7 +1080,7 @@ The Figure~\ref{Original_phase} was used as the reference (noise-free), while th
 As shown in Table~\ref{TabEficiencia_simu}, the TcCfilter exhibits the lowest mean RMSE and the highest accuracy among the analyzed filters across the $R = 30$ noise realizations. Additionally, the proposed filters LInSARRFE and TcNfilter present mean RMSE values that are only slightly higher than those of the Refined Lee filter.
 
 \begin{table}[hbt]
-	\caption{Efficiency of filters for simulated data: mean $\pm$ standard deviation over $R = 30$ independent noise realizations. Runtime (RT) values correspond to the average time among all replications. Time savings are computed relative to Ref.\ Lee and bold entries indicate the best value per column.\label{TabEficiencia_simu}}
+	\caption{Efficiency of filters for simulated data: mean $\pm$ standard deviation over $R = 30$ independent noise realizations. Runtime (RT) values correspond to the average time among all replications. Time savings are computed relative to the Refined Lee; bold entries indicate the best value per column.\label{TabEficiencia_simu}}
 	\begin{tabularx}{\textwidth}{
 			l % Filter name (left-aligned)
 			S[table-format=2.2] % Reserva 2 dígitos antes e 2 depois da vírgula
@@ -1089,9 +1090,9 @@ As shown in Table~\ref{TabEficiencia_simu}, the TcCfilter exhibits the lowest me
 			%>{\centering\arraybackslash}X  % TS
 		}
 		\toprule
-		\textbf{Filter} & \textbf{RMSE (mean $\pm$ sd)} & \textbf{SSIM (mean $\pm$ sd)} & \textbf{RT (\unit{\second})}&\textbf{Time Saved (\%)}\\
+		\textbf{Filter} & \textbf{RMSE (mean $\pm$ sd)} & \textbf{SSIM (mean $\pm$ sd)} & \textbf{RT (\si{\second})}&\textbf{Time Saved (\si{\percent})}\\
 		\midrule
-		Ref. Lee  & $\mathbf{1.84038 \pm 6.8\cdot 10^{-3}}$        & $\mathbf{0.945286 \pm 4.1 \cdot 10^{-4}}$ & 5656.09 & $\text{---}$\\
+		Refined Lee  & $\mathbf{1.84038 \pm 6.8\cdot 10^{-3}}$        & $\mathbf{0.945286 \pm 4.1 \cdot 10^{-4}}$ & 5656.09 & $\text{---}$\\
 		LInSARRFE & ${1.84926 \pm 4.7\cdot 10^{-3}}$        & ${0.944787 \pm 2.8\cdot 10^{-4}}$       & 624.82 & 88.95 \\
 		TcNfilter & ${1.879114 \pm 6.6\cdot 10^{-3}}$        & ${0.943092 \pm 3.9\cdot 10^{-4}}$ & $\mathbf{343.78}$  & $\mathbf{93.92}$ \\
 		TcCfilter & ${1.849049 \pm 4.6\cdot 10^{-3}}$ & ${0.944799\pm 2.7\cdot 10^{-4}}$ & 433.64  & 92.33 \\
@@ -1099,15 +1100,12 @@ As shown in Table~\ref{TabEficiencia_simu}, the TcCfilter exhibits the lowest me
 	\end{tabularx}
 \end{table}
 
-The Kruskal--Wallis test applied to the 30-replication RMSE distributions yields a statistically significant result (H:
-   $H_0$: All distributions are equal (medians are equal across filters),
-   $H_1$: At least one distribution differs, $\text{df} = 3$, $p=0.000001 < 0.05$), confirming that the filters differ in their denoising accuracy.
+The Kruskal-Wallis test applied to the 30-replication RMSE distributions yielded a statistically significant result for $H_0$: population medians are equal across filters, versus $H_1$: At least one distribution differs, with $\text{df} = 3$ degrees of freedom.
+We obtained $p=0.000001 < 0.05$), confirming that the filters differ in their denoising accuracy.
    
-Pairwise Wilcoxon signed-rank tests
- (H: $H_0$: The filter distribution is the same as Ref. Lee's
-  $H_1$: The distributions differ)
-against the Ref.\ Lee baseline (Bonferroni-corrected at $\alpha_{\text{adj}} = 0.01667$) show that TcCfilter achieves a significantly lower RMSE ($p=0.000002 < 0.017$), and LInSARRFE and TcNfilter show similar results.
-All alternative filters differ significantly from Ref. Lee's for RMSE and SSIM.
+Pairwise Wilcoxon signed-rank tests for $H_0$: difference of the median with respect to the Refined Lee's filter is zero versus $H_1$: the distributions differ
+(using Bonferroni-corrected $\alpha_{\text{adj}} = 0.01667$) showed that TcCfilter achieves a significantly lower RMSE ($p=0.000002 < 0.017$), and LInSARRFE and TcNfilter show similar results.
+%All alternative filters differ significantly from the Refined Lee's for RMSE and SSIM.
 
 Regarding SSIM, the metric that evaluates the structural similarity between the filtered interferogram and the reference image (noise-free)~\cite{ANonlocalFilterforSARInterferometric}, the Refined Lee filter shows a slight advantage, with a value closer to $1$. 
 The proposed filters, especially LInSARRFE and TcCfilter, exhibit SSIM values very close to those of the Refined Lee filter, indicating no significant loss in preserving image structure. 
@@ -1121,7 +1119,7 @@ Therefore, the proposed filters excel over the Refined Lee filter in terms of pr
 \subsection{La Cumbre data}
 \label{LaCumbre}
 %We analyzed data from the eruption of the La Cumbre volcano on Fernandina Island in the Galapagos archipelago, Ecuador, on January 12, 2020. The Region of Interest (ROI) presented in Figure~\ref{interferograma_LaCumbe} has $346\times492$ pixels.
-Figures~\ref{img_LeeRefined},~\ref{img_LInSARRFE},~\ref{img_TcNfilter}, and~\ref{img_TcCfilter} show the results of applying the Refined Lee InSAR, LInSARRFE, TcNfilter, and TcCfilter filters. Figures~\ref{unwrap_phase_LeeRefined},~\ref{unwrap_phase_LInSARRFE},~\ref{unwrap_phase_TcNfilter}, and~\ref{unwrap_phase_TcCfilter} show the unwrapped phases.
+Figures~\ref{img_LeeRefined}, \ref{img_LInSARRFE}, \ref{img_TcNfilter}, and~\ref{img_TcCfilter} show the results of applying the Refined Lee InSAR, LInSARRFE, TcNfilter, and TcCfilter filters. Figures~\ref{unwrap_phase_LeeRefined}, \ref{unwrap_phase_LInSARRFE}, \ref{unwrap_phase_TcNfilter}, and~\ref{unwrap_phase_TcCfilter} show the unwrapped phases.
 
 \begin{figure}[hbt]
 	%\begin{adjustwidth}{-\extralength}{0cm}
@@ -1186,7 +1184,7 @@ These results indicate that the proposed filters offer an effective balance betw
 		\textbf{Filter} & \textbf{\makecell{Number of\\ Residues}} & \textbf{\makecell{Reduction of \\ Residues (\%)}} & \textbf{RT (s)} & \textbf{\makecell{Time\\ Saved (\%)}} \\
 		\midrule
 		Unfiltered  & 11838     & --- & ---        & --- \\
-		Ref. Lee    & 2481      & 79.04 & 57851.37  & --- \\
+		Refined Lee    & 2481      & 79.04 & 57851.37  & --- \\
 		LInSARRFE   & \textbf{2145}  & \textbf{81.88} & 12069.78 & 79.02 \\
 		TcNfilter   & 2432      & 79.45 & \textbf{2023.66} & 96.50 \\
 		TcCfilter   & 2428      & 79.49 & 2436.25       & 95.78 \\
@@ -1211,7 +1209,7 @@ The second column shows the number of residues, and the third column shows the p
 		\textbf{Filter} & \textbf{\makecell{Number of\\ Residues}} & \textbf{\makecell{Reduction of \\ Residues (\%)}} & \textbf{RT (s)} & \textbf{\makecell{Time\\ Saved (\%)}} \\
 		\midrule
 		Unfiltered  & 12687     & --- & ---        & --- \\
-		Ref. Lee    & 4581      & 63.09 & 6021.06  & --- \\
+		Refined Lee    & 4581      & 63.09 & 6021.06  & --- \\
 		LInSARRFE   & 4801  	& 62.15 & 1642.30 & 72.72 \\
 		TcNfilter   & 4881      & 61.52 & \textbf{1369.55} & 77.25 \\
 		TcCfilter   & \textbf{4424}     & \textbf{65.12} & 1408.87       & 76.60 \\
@@ -1219,7 +1217,7 @@ The second column shows the number of residues, and the third column shows the p
 	\end{tabularx}
 \end{table}
 
-Figures~\ref{img_LeeRefined_alamos},~\ref{img_LInSARRFE_alamos},~\ref{img_TcNfilter_alamos}, and~\ref{img_TcCfilter_alamos} show the results after applying the Refined Lee InSAR, LInSARRFE, TcNfilter, and TcCfilter filters. Figures~\ref{unwrap_LeeRefined_alamos},~\ref{unwrap_LInSARRFE_alamos},~\ref{unwrap_TcNfilter_alamos}, and~\ref{unwrap_TcCfilter_alamos} show their unwrapped phases.
+Figures~\ref{img_LeeRefined_alamos}, \ref{img_LInSARRFE_alamos}, \ref{img_TcNfilter_alamos}, and~\ref{img_TcCfilter_alamos} show the results after applying the Refined Lee InSAR, LInSARRFE, TcNfilter, and TcCfilter filters. Figures~\ref{unwrap_LeeRefined_alamos}, \ref{unwrap_LInSARRFE_alamos}, \ref{unwrap_TcNfilter_alamos}, and~\ref{unwrap_TcCfilter_alamos} show their unwrapped phases.
 \begin{figure}[hbt]
 	%\begin{adjustwidth}{-\extralength}{0cm}
 	\centering
@@ -1269,7 +1267,7 @@ Table~\ref{TabSAR_Robledo} has the same data as the previous table for the Roble
 		\textbf{Filter} & \textbf{\makecell{Number of\\ Residues}} & \textbf{\makecell{Reduction of \\ Residues (\%)}} & \textbf{RT (s)} & \textbf{\makecell{Time\\ Saved (\%)}} \\
 		\midrule
 		Unfiltered  & 25080     & --- & ---        & --- \\
-		Ref. Lee    & 8704      & 65.29 & 6540.03  & --- \\
+		Refined Lee    & 8704      & 65.29 & 6540.03  & --- \\
 		LInSARRFE   & 9205  	& 63.30 & 1601.69 & 75.51 \\
 		TcNfilter   & 9339      & 62.76 & \textbf{1390.55} & 78.74 \\
 		TcCfilter   & \textbf{8476}     & \textbf{66.20} & 1433.03       & 78.09 \\
@@ -1277,7 +1275,7 @@ Table~\ref{TabSAR_Robledo} has the same data as the previous table for the Roble
 	\end{tabularx}
 \end{table}
 
-Figures~\ref{img_LeeRefined_ArgVol},~\ref{img_LInSARRFE_ArgVol},~\ref{img_TcNfilter_ArgVol}, and~\ref{img_TcCfilter_ArgVol} show the results after applying the Refined Lee InSAR, LInSARRFE, TcNfilter, and TcCfilter filters. Figures~\ref{unwrap_LeeRefined_ArgVol},~\ref{unwrap_LInSARRFE_ArgVol},~\ref{unwrap_TcNfilter_ArgVol}, and~\ref{unwrap_TcCfilter_ArgVol} show their unwrapped phases.
+Figures~\ref{img_LeeRefined_ArgVol}, \ref{img_LInSARRFE_ArgVol}, \ref{img_TcNfilter_ArgVol}, and~\ref{img_TcCfilter_ArgVol} show the results after applying the Refined Lee InSAR, LInSARRFE, TcNfilter, and TcCfilter filters. Figures~\ref{unwrap_LeeRefined_ArgVol}, \ref{unwrap_LInSARRFE_ArgVol}, \ref{unwrap_TcNfilter_ArgVol}, and~\ref{unwrap_TcCfilter_ArgVol} show their unwrapped phases.
 \begin{figure}[hbt]
 	%\begin{adjustwidth}{-\extralength}{0cm}
 	\centering
