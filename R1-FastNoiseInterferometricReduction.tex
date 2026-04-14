@@ -296,20 +296,28 @@ Probabilistic models are the core of spatial statistical filters.
 \citet{IntensityAndPhaseStatisticsOfMultilookPolarimetricAndInterferometricSARimagery} obtained a statistical model for the interferometric phase grounded on the physics of the image formation.
 The Lee filter its variants~\cite{ImprovedSigmaFilterforSpeckleFilteringofSARImagery, AnewtechniquefornoisefilteringofSARinterferometricphasimages, RefinedFilteringofInterferometricPhaseFromInSARData} followed this proposal. 
 \citet{ClosedFormExpressionsforInSARSampleStatisticsandItsApplicationtoNonGaussianData} derived another version of Lee et al.'s model by restricting the parameter space.
-Faster and numerically more stable filters can be implemented with this version, but how close it is from the ``full parametric space'' model remains an open question.
+Faster and numerically more stable filters can be implemented with this version, but how close it is from the full parametric space model remains an open question.
 Recent works explore alternatives to those classical approaches~\citep{AngularConsistencyAdaptiveFilteringandComplexGeneralizedGaussianBasedPhaseLinkingforDSInSAR,CLTCPLaRobustMathematicalFrameworkandAlgorithmforInSARPhaseLinkingUsingtheCentralLimitTheoremofCircularStatistics}.
 
-With the time execution problem in mind, we propose using empirical circular models to replace the Lee et al.'s and Gierull models in consolidated denoising techniques.
-%The circular models are described in~\cite{CircularStatisticsinR}.
-Using the same denoising infrastructure, we implemented three filters: 
-one based on the Gierull model (LInSARRFE), the baseline, and 
-two new that employ empirical truncated distributions.
-Our filters are based on the truncated wrapped normal (TcNfilter) and on the truncated wrapped Cauchy (TcCfilter) models. 
-
-The common denoising infrastructure that allows us to compare the running times is an adaptive filtering framework that adjusts to local phase variability.
-The Lee et al.'s model and this infrastructure comprise our reference baseline, given their established role as a benchmark in InSAR data filtering.
-We show that TcNfilter and TcCfilter are significantly faster than the one based on Gierull's model without compromising the quality of the results.
+With the time execution problem in mind, 
+we propose using empirical circular models to replace the Lee et al.'s and Gierull models in consolidated denoising techniques.
+For that aim, we present the Truncated Wrapped Normal and Truncated Wrapped Cauchy and their main properties.
 Additionally, we discuss how close the Gierull and Lee et al.'s models are.
+
+We used 
+an adaptive filtering framework that adjusts to local phase variability
+as the common denoising infrastructure.
+This allows us to compare the running times of the four filters we compared.
+They differ only on the statistical model they employ, namely:
+\begin{enumerate}[label={\alph*})] 
+\item Lee et al.'s, with the full parameter space (Refined Lee),
+\item Gierull's, with a restricted parameter space (LInSARRFE),
+\item Truncated Wrapped Normal (TcNfilter), and
+\item Truncated Wrapped Cauchy (TcCfilter).
+\end{enumerate}
+The Lee et al.'s model and this infrastructure comprise our reference baseline, given their established role as a benchmark in InSAR data filtering.
+We show that the filter based on the Gierull model improves the running time with similar results as those produced by the Refined Lee filter.
+Moreover, we show that the filters based on the empirical models are significantly faster than the one based on Gierull's model without compromising the quality of the results.
 
 %The methodological innovation proposed in this work is the application of a physically-inspired probability distribution and two empirical laws, yielding similar noise-reduction performance with a notable gain in computational efficiency.
 
