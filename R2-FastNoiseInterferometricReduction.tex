@@ -321,6 +321,17 @@ Moreover, we show that the filters based on the empirical models are significant
 
 %The methodological innovation proposed in this work is the application of a physically-inspired probability distribution and two empirical laws, yielding similar noise-reduction performance with a notable gain in computational efficiency.
 
+The main contributions of this article are 
+(i)~the numerical 	difference between the Lee et al.'s and Gierull models for InSAR data; 
+(ii)~two new denoising filters based on the truncated wrapped normal (TcN) and truncated wrapped Cauchy (TcC) empirical models; 
+(iii)~evidence that these new filters significantly reduce the computational time and  produce results as good as the Refined Lee filter. 
+
+\subsection*{The implications of the main findings of this research.}
+\begin{itemize}[label=$\bullet$]
+    \item The methodologies based on empirical models provide a favorable trade-off between residual suppression and computational efficiency.
+\end{itemize}
+
+
 This paper is structured as follows.
 Section~\ref{sec:mat_meth} describes the datasets and the methodology used to construct the proposed filters.
 Section~\ref{sec:resu} presents the experimental results.
@@ -957,7 +968,7 @@ LInSARRFE calculates $\psi_{\xi}$ using the expression defined in~\eqref{subsec:
 	\label{Janelas_filtros_propostos}
 \end{figure}
 
-For the TcNfilter, TcCfilter, and LInSARFE filters, the phase limit $\psi_\xi$ is obtained based on the empirical models ($\mathcal{NT_C}$ and $\mathcal{CT_C}$), and on the physical model~\eqref{subsec:sec3.2.1_cap3Eq8}. 
+For the TcNfilter, TcCfilter, and LInSARRFE filters, the phase limit $\psi_\xi$ is obtained based on the empirical models ($\mathcal{NT_C}$ and $\mathcal{CT_C}$), and on the physical model~\eqref{subsec:sec3.2.1_cap3Eq8}. 
 To maintain the resolution, we propose applying the Mean Minimum Square Error (MMSE)~\cite{ImprovedSigmaFilterforSpeckleFilteringofSARImagery} estimator to the pixels selected in $\bm\psi_z'$ based on the phase limit:
 \begin{equation}
 	\widehat{\psi}_x=\overline{\bm\psi}_z'+b(\psi_z-\overline{\bm\psi}'_z),
@@ -1256,7 +1267,7 @@ Figures~\ref{img_LeeRefined_alamos}, \ref{img_LInSARRFE_alamos}, \ref{img_TcNfil
 	\subfloat{\includegraphics[width=.67\linewidth]{BarraCores_unwrap1}}
 	%\end{adjustwidth}
 	%\caption{\textmd{Interferograms filtered and before unwrapping the phase (top) and after unwrapping (bottom)}}
-	\caption{Los Alamos image before and after filtering: (\textbf{a})~Unfiltered Phase, (\textbf{b})~Refined Lee, (\textbf{c})~LInSARRFE, (\textbf{d})~TcNfilter, (\textbf{e})~TcCfilter. Unwrapped phase after filter application: (\textbf{f})~Refined Lee, (\textbf{g	})~LInSARRFE, (\textbf{h})~TcNfilter, (\textbf{i})~TcCfilter}
+	\caption{Los Alamos image before and after filtering: (\textbf{a})~Unfiltered Phase, (\textbf{b})~Refined Lee, (\textbf{c})~LInSARRFE, (\textbf{d})~TcNfilter, (\textbf{e})~TcCfilter. Unwrapped phase after filter application: (\textbf{f})~Refined Lee, (\textbf{g})~LInSARRFE, (\textbf{h})~TcNfilter, (\textbf{i})~TcCfilter}
 	\label{filters_los_alamos} % label da figura toda
 \end{figure}
 %
