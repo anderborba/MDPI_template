@@ -1,0 +1,251 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[english]{babel}
+%Includes "References" in the table of contents
+\usepackage[nottoc]{tocbibind}
+%%
+\usepackage{graphicx}
+\graphicspath{./Figures/}
+
+%\usepackage{subcaption}
+%\captionsetup[table]{font=small,size=smaller,textfont=sc}
+%\captionsetup[figure]{font=small,size=smaller}
+
+\usepackage{booktabs}
+%\usepackage[T1]{fontenc}
+%\usepackage{cite}
+%\usepackage[cmex10]{amsmath}
+%\usepackage{color}
+%\usepackage{bm,bbm}
+%\usepackage{wasysym}
+%\usepackage{texnames}
+%\usepackage{url}
+
+\usepackage[boxed]{algorithm2e}   % AAB inserido
+%\usepackage{natbib} % AAB Inserted
+\usepackage[listings]{tcolorbox}
+
+%\usepackage{siunitx}
+\usepackage{natbib}
+\usepackage{multirow,bigstrut}
+\usepackage{subfig} % AAB inserted	
+\usepackage{booktabs} % AAB inserted
+%\usepackage[detect-weight=true, binary-units=true]{siunitx} % AAB inserted
+\usepackage{siunitx} % AAB inserted
+\usepackage{tikz}  % AAB inserido
+\usetikzlibrary{shapes,arrows,shadows}  % AAB inserido
+\usepackage{bbm}
+%%
+
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+	\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+			\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+			\begin{picture}(1,1)% %DIF PREAMBLE
+			\thicklines\linethickness{2pt} %DIF PREAMBLE
+			{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+			{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+			{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+			\end{picture}% %DIF PREAMBLE
+		}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF LISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_UNDERLINE %DIF PREAMBLE
+moredelim=[il][\color{red}\sout]{\%DIF\ <\ }, %DIF PREAMBLE
+moredelim=[il][\color{blue}\uwave]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+language=DIFcode, %DIF PREAMBLE
+basicstyle=\ttfamily, %DIF PREAMBLE
+columns=fullflexible, %DIF PREAMBLE
+keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%%
+
+%Title, date an author of the document
+%\title{Bibliography management: BibTeX}
+%\author{Overleaf}
+
+%Begining of the document
+\begin{document}
+
+%%%
+\title{Fast Noise Reduction in InSAR Data with Empirical Statistical Models\\
+	Revision R1}
+
+
+\author{Anderson A.\ De Borba,
+	Joselito E.\ De Araújo, and
+	Alejandro C. Frery}
+
+
+\maketitle
+
+
+\section{Review Report}
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Review Report]
+Dear authors, thank you for your manuscript. It concerns spatial filtering methods for SAR interferograms, trying to find a suitable filtering method with lower computing efforts.
+
+The paper is well organized, well written and generally comprehensible.
+
+I only ask the authors to make some changes in the paper title and abstract to stress out that it regards SPATIAL filtering for DInSAR/SBAS interferograms, as InSAR is a much wider term, in order not to be mistaken (as I was). Also InSAR noise can indicate something else.
+
+In addition to these, I only have minor comments:
+
+section 2.1.2-4 - please provide more details about the data: satellite/UAVSAR, band, maybe 2 dates if it is a satellite
+figure 3 - please provide wavelength (band), Bperp, Btemp etc.
+equation 13: what is F?
+
+\end{tcolorbox}
+
+
+
+\section{Answers to Reviewer. \#3}
+
+Thank you very much for handling this manuscript.
+
+We have prepared a revised version taking into account all the comments and suggestions made.
+
+In fact, we found the review well-informed and constructive. We would like to thank the reviewer.
+
+This response letter addresses all the comments in red, followed by
+our reactions, and, whenever necessary, the changes made.
+
+The authors
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment 1]
+I only ask the authors to make some changes in the paper title and abstract to stress out that it regards SPATIAL filtering for DInSAR/SBAS interferograms, as InSAR is a much wider term, in order not to be mistaken (as I was). Also InSAR noise can indicate something else.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white,colframe=black,title=Changes 1]
+Thank you very much for your contribution. The authors fully agree
+with the suggestion, and we have made the following modifications.
+
+New Title: Fast Spatial Denoising for Repeat-Pass InSAR Data via Empirical Statistical Modeling
+
+In the abstract, we now clarify that
+\begin{quote}
+Repeat-pass SAR interferometry (InSAR) provides a framework for extracting high-resolution topographic information and detecting surface deformation. 
+By analyzing the phase difference between radar acquisitions obtained at different times, one can characterize landscape geometry and surface changes. 
+However, inherent phase noise often compromises the reliability of the resulting interferometric products. 
+Consequently, there is a sustained need for spatial filtering techniques that suppress noise while preserving structural integrity and resolution.
+%
+This work evaluates three statistically-based spatial filters. 
+We examine a model derived from the physical properties of coherent illumination (the Gierull model) and compare it against two empirical alternatives: the truncated wrapped normal (TcN) and the truncated wrapped Cauchy (TcC) distributions. 
+These empirical models reduce computational demand without degrading the quality of the filtered phase.
+%
+We assess performance using a simulated dataset for objective validation alongside  InSAR imagery of La Cumbre volcano, Los Alamos, and Robledo volcano. 
+While the proposed models demonstrate significant gains in computational efficiency compared to current methods, we identify numerical integration as a primary bottleneck in the filtering process; this challenge warrants further investigation. 
+Our results indicate that empirical statistical models provide a viable path for accelerated InSAR processing with accuracy equivalent to traditional, computationally intensive approaches.
+\end{quote}
+
+\end{tcolorbox}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment 2]
+Section 2.1.2-4 - please provide more details about the data: satellite/UAVSAR, band, maybe 2 dates if it is a satellite
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white,colframe=black,title=Changes 2]
+Thank you very much for your contribution. The authors fully agree
+with the suggestion, and we have made the following modification in the Table 01:
+
+All suggested modifications have been implemented.
+\end{tcolorbox}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment 3]
+Figure 3 - please provide wavelength (band), Bperp, Btemp etc.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white,colframe=black,title=Changes 3]
+Thank you very much for your contribution. The authors fully agree
+with the suggestion, and we have made the following modification:
+
+The answers are in Table 1. The wavelength is explicitly stated, Btemp implicitly, and Bperp was not included in the table due to data uncertainty.
+
+\end{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment 4]
+Equation 13: what is F?
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white,colframe=black,title=Changes 4]
+Thank you very much for your contribution. The authors fully agree
+with the suggestion, and we have made the following modification in equation (13):
+
+We did the follow modification, "where $F$ is the cumulative distribution function (CDF) of the adopted model".
+\end{tcolorbox}
+
+\bibliographystyle{abbrvnat}
+
+%Sets the bibliography style to UNSRT and imports the 
+%bibliography file "sample.bib".
+\bibliography{references}
+\end{document}
