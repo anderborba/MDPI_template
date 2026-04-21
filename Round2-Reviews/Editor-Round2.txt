@@ -1,0 +1,21 @@
+This paper addresses an important practical problem – accelerating InSAR phase noise filtering – by replacing the computationally expensive physical model (Lee et al. / Gierull) with two empirical circular distributions (truncated wrapped normal and truncated wrapped Cauchy). The computational gains are impressive. However, several methodological and presentation issues need to be addressed before the manuscript can be accepted for publication.
+
+1. The term “coherence image” is almost absent from the current title and abstract. Given that the filtering is applied to the phase of coherent pixels, the title should explicitly mention coherence or coherence image. Recommend to change the title and omit “repeat-pass”, because the noise is general phenomenon for different InSAR modes. Such as “Fast Spatial Denoising of InSAR Interferogram via Empirical Statistical Modeling”
+
+Done. We agree with the Editor. We had added "Repeat-Pass" as per a reviewer's previous request, but the title the Editor suggest is better, and we have adopted it. The new title is "Fast Spatial Denoising of InSAR Interferograms via Empirical Statistical Modeling". We have edited the abstract accordingly. 
+
+Regarding the use of "coherence image", we have added the following sentence to the abstract: "This work addresses the challenge of filtering the unwrapped phase, a process traditionally reliant on accurate coherence images to identify reliable pixels."
+
+2. Lack of clear comparative discussion on which method is more suitable under different conditions. The authors present results for three proposed methods (LinSARRFE, TcNfilter, TcCfilter) plus the Refined Lee baseline. They show that TcCfilter often gives the lowest RMSE or residue reduction, while TcNfilter is the fastest. However, no guidance is provided to practitioners on which filter to choose for a given InSAR scenario. Recommend to add a subsection in Discussion section to provides practical recommendations.
+
+Done. We have concluded the Discussion section with the following paragraph: In summary, while the TcN filter is the most computationally efficient, we suggest the TcC filter as the preferred practical choice due to its superior denoising capability at a negligible additional cost. For applications necessitating a physically-based approach, the Gierull model serves as a high-performance alternative to the Enhanced Lee filter, yielding equivalent results for integer looks but with vastly improved execution speed.
+
+
+3. Missing statistical comparison between TcN/TcC and the physical model beyond runtime. The authors compare RMSE and SSIM, but these are image level metrics. They do not test whether the distribution of filtered phases from empirical models is statistically indistinguishable from that obtained with the Gierull model. A simple two sample Kolmogorov Smirnov test on the phase residuals (filtered vs reference) would strengthen the claim that empirical models “produce results as good as the physical one”. Recommend add a supplementary analysis (or a brief paragraph in Results) comparing the empirical cumulative distribution of the filtered phases (e.g., for the simulated data) with the Gierull‑based filter. If the distributions are not significantly different (p > 0.05), state that explicitly.
+
+4. Minor comments
+Subsections is too much, recommend to re-organized the whole manuscript. Such the subsection 2.1.3 only contains one sentence.
+
+Done. We have restructured Section 2 (Materials and Methods) by consolidating several subsections. The section is now organized into Section 2.1 (Simulated Data), Section 2.2 (SAR Images), Section 2.3 (Statistical Models and Filters; new title). To maintain clarity, only Section 2.3 retains subsections, as dictated by the technical depth of its content. We moved the previous subsection "Computational Resources" to the end of Section 2 to ensure a more logical progression of the methodology.
+
+Font size of label in Figures is small, recommend to change font size according to journal guidelines. Such as Fig.5
