@@ -1,4 +1,0 @@
-I believe the authors have adequately addressed the previous round of review comments. However, a few minor issues still need improvement:
-1. The usage of certain terms and method names is not entirely consistent throughout the text. For example, variations such as "LInSARRFE" and "LInSARFE" appear in different places, which may confuse readers. It would be better to unify them into a single standard form throughout the paper.
-2. In terms of writing, the paper does have innovative points, but they are presented in a somewhat scattered manner. It is suggested to highlight the main contributions more concisely at the end of the introduction—for instance, first, comparing the differences between the Lee and Gierull models; second, proposing two empirical model filters, TcN and TcC; and third, significantly improving operational efficiency while maintaining comparable performance. This would help readers better grasp the value of the paper.
-
