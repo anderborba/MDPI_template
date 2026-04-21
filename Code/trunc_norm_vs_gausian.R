@@ -67,31 +67,42 @@ df_cauchy_long <- data.frame(x = x, Cauchy = y_cauchy, Truncated = y_cauchy_trun
 df_cauchy_transl_long <- data.frame(x = xt, Cauchy = y_cauchy_transl, Truncated = y_cauchy_trunc_transl) %>%
   pivot_longer(cols = c("Cauchy", "Truncated"), names_to = "Model", values_to = "Densidade")
 
-# Função base de plot com estilo
+# Função base de plot com estilo (MDPI Remote Sensing: base_size = 10 pt)
+mdpi_theme <- theme_bw(base_size = 10, base_family = "serif") +
+  theme(
+    panel.grid.minor = element_blank(),
+    legend.position  = "top",
+    legend.title     = element_text(size = 10),
+    legend.text      = element_text(size = 9),
+    axis.title       = element_text(size = 10),
+    axis.text        = element_text(size = 9)
+  )
+
 plot_base <- function(df, titulo) {
   ggplot(df) +
-    geom_line(aes(x = x, y = Densidade, col = Model), linewidth = 1) +
+    geom_line(aes(x = x, y = Densidade, col = Model), linewidth = 0.8) +
     labs(title = titulo, x = "x", y = "Probability Density Function", color = "Model") +
     scale_color_manual(values = c("Gaussian" = "blue", "Truncated" = "red",
                                   "Cauchy" = "blue", "Truncated" = "red")) +
-    theme_pander() +
-    theme(
-      text = element_text(family = "serif"),
-      panel.grid.minor = element_blank(),
-      legend.position = "top",
-      axis.title.x = element_text(size = 12),
-      axis.title.y = element_text(size = 12)
-    )
+    mdpi_theme
 }
 
 # Gráficos
-g1 <- plot_base(df_gaussian_long, "") #Gaussian vs Truncated Gaussian
-g2 <- plot_base(df_gaussian_transl_long, "") #Gaussian Transl. vs Truncated Gaussian Transl.
-g3 <- plot_base(df_cauchy_long, "") #Cauchy vs Truncated Cauchy
-g4 <- plot_base(df_cauchy_transl_long, "") #Cauchy Transl. vs Truncated Cauchy Transl.
+g1 <- plot_base(df_gaussian_long, "")           # Gaussian vs Truncated Gaussian
+g2 <- plot_base(df_gaussian_transl_long, "")    # Gaussian Transl. vs Truncated Gaussian Transl.
+g3 <- plot_base(df_cauchy_long, "")             # Cauchy vs Truncated Cauchy
+g4 <- plot_base(df_cauchy_transl_long, "")      # Cauchy Transl. vs Truncated Cauchy Transl.
 
 # Mostrar plots
 print(g1)
 print(g2)
 print(g3)
 print(g4)
+
+# Salvar em PDF com dimensões MDPI (dois subfigures em 0.5 * 17 cm = 8.5 cm cada)
+fig_dir <- "../Figures"
+
+ggsave(file.path(fig_dir, "gaussian_vs_truncated_gaussian.pdf"),         g1, width = 8.5, height = 7.0, units = "cm")
+ggsave(file.path(fig_dir, "gaussian_transl_vs_truncated_gaussian_transl.pdf"), g2, width = 8.5, height = 7.0, units = "cm")
+ggsave(file.path(fig_dir, "cauchy_vs_truncated_cauchy.pdf"),              g3, width = 8.5, height = 7.0, units = "cm")
+ggsave(file.path(fig_dir, "cauchy_transl_vs_truncated_cauchy.pdf"),       g4, width = 8.5, height = 7.0, units = "cm")

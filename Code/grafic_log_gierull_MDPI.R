@@ -15,7 +15,7 @@ require(extrafont)
 loadfonts()
 theme_set(theme_pander() + theme(text = element_text(family = "serif")))
 library(latex2exp)
-library(FDDPhase)
+source("dFuncGierullEq7.R")
 
 # Dados
 n <- 1000
@@ -49,9 +49,9 @@ cores <- c(
   "0.999999" = "#e7298a"
 )
 
-# Gráfico
+# Gráfico (MDPI Remote Sensing: base_size = 10 pt)
 p <- ggplot(df, aes(x = x, y = y, color = Coherence)) +
-  geom_line(linewidth = 1, alpha = 0.7) +
+  geom_line(linewidth = 0.8, alpha = 0.7) +
   scale_color_manual(name = "Coherence", values = cores) +
   xlab(TeX("Phase Differences (Rad)")) +
   ylab(TeX("Logarithm of the Probability Density Function")) +
@@ -60,13 +60,25 @@ p <- ggplot(df, aes(x = x, y = y, color = Coherence)) +
     labels = TeX(c("\\frac{\\pi}{6}-0.02", "\\frac{\\pi}{6}-0.01", "\\frac{\\pi}{6}", "\\frac{\\pi}{6}+0.01", "\\frac{\\pi}{6}+0.02"))
   ) +
   coord_cartesian(ylim = c(-2, 12)) +
-  theme_pander(base_size = 12) +
+  theme_bw(base_size = 10, base_family = "serif") +
   theme(
-    text = element_text(family = "serif"),
     panel.grid.minor = element_blank(),
-    legend.position = "top"
+    legend.position  = "top",
+    legend.title     = element_text(size = 10),
+    legend.text      = element_text(size = 9),
+    axis.title       = element_text(size = 10),
+    axis.text        = element_text(size = 9)
   )
 
 # Exibir gráfico
 print(p)
+
+# Salvar em PDF com dimensões MDPI (0.7 * 17 cm = 11.9 cm)
+ggsave(
+  "../Figures/log_pdf_gierull_n1000_rho.pdf",
+  plot   = p,
+  width  = 11.9,
+  height = 8.0,
+  units  = "cm"
+)
 
