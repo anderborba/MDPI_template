@@ -5,7 +5,8 @@
 #
 #BASE_NAME = rel_tec_igarss_2021
 #BASE_NAME = template
-BASE_NAME = R0-FastNoiseInterferometricReduction
+#BASE_NAME = R3-FastNoiseInterferometricReduction
+BASE_NAME = Editor-Round2
 #BASE_NAME = Diff_mdpi_R0_R1
 
 LATEX     = latex
@@ -16,10 +17,10 @@ MAKEINDEX = makeindex
 pdf: $(BASE_NAME).pdf
 ps: $(BASE_NAME).ps
 
-$(BASE_NAME).pdf: $(BASE_NAME).tex 
+$(BASE_NAME).pdf: $(BASE_NAME).tex
 	$(PDFLATEX) $<
-	$(BIBTEX) $(BASE_NAME) 
-	$(PDFLATEX) $< 
+	-$(BIBTEX) $(BASE_NAME)
+	$(PDFLATEX) $<
 	$(PDFLATEX) $<
 	$(PDFLATEX) $<
 

@@ -1,0 +1,209 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[english]{babel}
+%Includes "References" in the table of contents
+\usepackage[nottoc]{tocbibind}
+%%
+\usepackage{graphicx}
+\graphicspath{./Figures/}
+
+%\usepackage{subcaption}
+%\captionsetup[table]{font=small,size=smaller,textfont=sc}
+%\captionsetup[figure]{font=small,size=smaller}
+
+\usepackage{booktabs}
+%\usepackage[T1]{fontenc}
+%\usepackage{cite}
+%\usepackage[cmex10]{amsmath}
+%\usepackage{color}
+%\usepackage{bm,bbm}
+%\usepackage{wasysym}
+%\usepackage{texnames}
+%\usepackage{url}
+
+\usepackage[boxed]{algorithm2e}   % AAB inserido
+%\usepackage{natbib} % AAB Inserted
+\usepackage[listings]{tcolorbox}
+
+%\usepackage{siunitx}
+\usepackage{natbib}
+\usepackage{multirow,bigstrut}
+\usepackage{subfig} % AAB inserted	
+\usepackage{booktabs} % AAB inserted
+%\usepackage[detect-weight=true, binary-units=true]{siunitx} % AAB inserted
+\usepackage{siunitx} % AAB inserted
+\usepackage{tikz}  % AAB inserido
+\usetikzlibrary{shapes,arrows,shadows}  % AAB inserido
+\usepackage{bbm}
+%%
+
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+	\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+			\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+			\begin{picture}(1,1)% %DIF PREAMBLE
+			\thicklines\linethickness{2pt} %DIF PREAMBLE
+			{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+			{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+			{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+			\end{picture}% %DIF PREAMBLE
+		}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF LISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_UNDERLINE %DIF PREAMBLE
+moredelim=[il][\color{red}\sout]{\%DIF\ <\ }, %DIF PREAMBLE
+moredelim=[il][\color{blue}\uwave]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+language=DIFcode, %DIF PREAMBLE
+basicstyle=\ttfamily, %DIF PREAMBLE
+columns=fullflexible, %DIF PREAMBLE
+keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%%
+
+%Title, date an author of the document
+%\title{Bibliography management: BibTeX}
+%\author{Overleaf}
+
+%Begining of the document
+\begin{document}
+
+%%%
+\title{Fast Spatial Denoising of InSAR Interferograms via Empirical Statistical Modeling\\
+	Revision to Editor}
+
+
+\author{Anderson A.\ De Borba,
+	Joselito E.\ De Araújo, and
+	Alejandro C. Frery}
+
+
+\maketitle
+
+
+\section{Editor}
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title= Acknowledgements]
+Dear Editor,
+
+The authors emphasize the importance of this revision and how much it contributed to improving the article. The revision helped clarify important points in the work, as well as improve the overall presentation of the article.
+
+Below are the answers to the questions raised by the editor.
+
+The authors greatly appreciate the highlighted points and are available to clarify any further necessary points.
+
+The Authors
+\end{tcolorbox}
+
+
+
+\section{Answers to Editor.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment 1]
+1. The term “coherence image” is almost absent from the current title and abstract. Given that the filtering is applied to the phase of coherent pixels, the title should explicitly mention coherence or coherence image. Recommend to change the title and omit “repeat-pass”, because the noise is general phenomenon for different InSAR modes. Such as “Fast Spatial Denoising of InSAR Interferogram via Empirical Statistical Modeling”
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white,colframe=black,title=Changes 1]
+We agree with the Editor. We had added "Repeat-Pass" as per a reviewer's previous request, but the title the Editor suggest is better, and we have adopted it. The new title is "Fast Spatial Denoising of InSAR Interferograms via Empirical Statistical Modeling". We have edited the abstract accordingly. 
+
+Regarding the use of "coherence image", we have added the following sentence to the abstract: "This work addresses the challenge of filtering the unwrapped phase, a process traditionally reliant on accurate coherence images to identify reliable pixels."
+\end{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment 2]
+Lack of clear comparative discussion on which method is more suitable under different conditions. The authors present results for three proposed methods (LinSARRFE, TcNfilter, TcCfilter) plus the Refined Lee baseline. They show that TcCfilter often gives the lowest RMSE or residue reduction, while TcNfilter is the fastest. However, no guidance is provided to practitioners on which filter to choose for a given InSAR scenario. Recommend to add a subsection in Discussion section to provides practical recommendations.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white,colframe=black,title=Changes 2]
+We have concluded the Discussion section with the following paragraph: In summary, while the TcN filter is the most computationally efficient, we suggest the TcC filter as the preferred practical choice due to its superior denoising capability at a negligible additional cost. For applications necessitating a physically-based approach, the Gierull model serves as a high-performance alternative to the Enhanced Lee filter, yielding equivalent results for integer looks but with vastly improved execution speed.
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment 3]
+Missing statistical comparison between TcN/TcC and the physical model beyond runtime. The authors compare RMSE and SSIM, but these are image level metrics. They do not test whether the distribution of filtered phases from empirical models is statistically indistinguishable from that obtained with the Gierull model. A simple two sample Kolmogorov Smirnov test on the phase residuals (filtered vs reference) would strengthen the claim that empirical models “produce results as good as the physical one”. Recommend add a supplementary analysis (or a brief paragraph in Results) comparing the empirical cumulative distribution of the filtered phases (e.g., for the simulated data) with the Gierull‑based filter. If the distributions are not significantly different (p > 0.05), state that explicitly.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white,colframe=black,title=Changes 3]
+Thank you very much for the suggestion; we agree that it will complete and add quality to the work.
+
+We performed the tests and show the results between lines 355 and 367 of the latest version of the manuscript called "R3-FastNoiseInterferometricReduction.pdf".
+\end{tcolorbox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment 4]
+Minor comments
+Subsections is too much, recommend to re-organized the whole manuscript. Such the subsection 2.1.3 only contains one sentence.
+Font size of label in Figures is small, recommend to change font size according to journal guidelines. Such as Fig.5
+\end{tcolorbox}
+\begin{tcolorbox}[colback=white,colframe=black,title=Changes 4]
+We have restructured Section 2 (Materials and Methods) by consolidating several subsections. The section is now organized into Section 2.1 (Simulated Data), Section 2.2 (SAR Images), Section 2.3 (Statistical Models and Filters; new title). To maintain clarity, only Section 2.3 retains subsections, as dictated by the technical depth of its content. We moved the previous subsection "Computational Resources" to the end of Section 2 to ensure a more logical progression of the methodology.
+
+We modified figures 3, 4, 5, 6, and 7. Figures 3 and 4 were completely modified. Figures 5 and 6 were reorganized, mainly by changing the position of the legend and the font size, according to the MDPI author's manual. In figure 7, we increased its size in the text. Thank you for the suggestions.
+\end{tcolorbox}
+
+
+%\bibliographystyle{abbrvnat}
+%\bibliography{bibliografia1}
+\end{document}
