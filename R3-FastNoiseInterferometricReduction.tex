@@ -554,9 +554,9 @@ Figure~\ref{eq_lee} illustrates the density function for phase differences accor
 
 Visually, we observe a small difference when comparing Figures~\ref{eq_lee} and~\ref{eq_gierull} for similar values of $L$, indicating that there is no significant loss of information when using model~\eqref{subsec:sec3.2.1_cap3Eq8} compared to the other model.
 \begin{figure}[hbt]
-	\subfloat[\centering Lee model Eq.~\eqref{subsec:sec3.2.1_cap3Eq7}\label{eq_lee}]{
+	\subfloat[\centering Lee model Eq.~\eqref{subsec:sec3.2.1_cap3Eq7}.\label{eq_lee}]{
 		\includegraphics[width=.5\linewidth]{diff_phase_lee}}
-	\subfloat[\centering Gierull model Eq.~\eqref{subsec:sec3.2.1_cap3Eq8}\label{eq_gierull}]{
+	\subfloat[\centering Gierull model Eq.~\eqref{subsec:sec3.2.1_cap3Eq8}.\label{eq_gierull}]{
 		\includegraphics[width=.5\linewidth]{diff_phase_gierull}}
 	\caption{\textmd{Comparison of Phase Difference PDFs: Lee versus Gierull models}}
 	\label{ajuste_dKL_fisicos}
@@ -1054,9 +1054,15 @@ Pairwise Wilcoxon signed-rank tests for $H_0$: difference of the median with res
 
 To analyze the results more consistently, the Kolmogorov-Smirnov (KS) test was applied to two filtered images, comparing TcNfilter with LInSARRFE and TcCfilter with LInSARRFE. We used the test to obtain a statistically significant measure of the phase difference between the filtered images, rather than the image-level measures used previously.
 
-The test assesses the null hypothesis $H_0$, which states that the two samples are drawn from the same distribution. The results obtained were KS = 0.1210 ($p\approx 0$) for TcNfilter and KS = 0.1134 ($p\approx 0$) for TcCfilter, both indicating the rejection of $H_0$ at the 5\% significance level. However, even with KS statistics around 0.11 and 0.12, the maximum absolute difference between the empirical CDFs and the physical CDF based on the Gierull model is approximately 12\%. Taken together, the result of the hypothesis test, plus the analysis of the RMSE and SSIM metrics, suggests that, although the empirical filters do not reproduce the exact phase distribution of LInSARRFE, the distribution differences are modest and do not translate into significant degradation of filtering quality under the tested conditions.
+The test assesses the null hypothesis $H_0$, which states that the two samples are drawn from the same distribution. 
+The results obtained were $\text{KS} = 0.1210$ for TcNfilter 
+and $\text{KS} = 0.1134$ for TcCfilter, both leading to 
+$p{\text{-value}}<10^{-6}$ and indicating the rejection of $H_0$ any practical significance level. 
+However, the maximum absolute difference between the empirical CDFs and the physical CDF based on the Gierull model is approximately \qty{12}{\percent}. 
+Altogether, the results of the hypothesis tests, combined with the analysis of the RMSE and SSIM metrics, suggest that while the empirical filters do not exactly reproduce the phase distribution of the LInSARRFE, these distributional differences are modest. 
+Furthermore, they do not result in a significant degradation of filtering quality under the tested conditions.
 
-Regarding SSIM, the metric that evaluates the structural similarity between the filtered interferogram and the reference image (noise-free)~\cite{ANonlocalFilterforSARInterferometric}, the Refined Lee filter shows a slight advantage, with a value closer to $1$. 
+Regarding SSIM, the metric that evaluates the structural similarity between the filtered interferogram and the reference image (noise-free), the Refined Lee filter shows a slight advantage, with a value closer to $1$. 
 The proposed filters, especially LInSARRFE and TcCfilter, exhibit SSIM values very close to those of the Refined Lee filter, indicating no significant loss in preserving image structure. 
 
 Regarding runtime, the proposed filters significantly outperform the Refined Lee filter, which has the longest processing times, potentially restricting its use in time-sensitive applications. 

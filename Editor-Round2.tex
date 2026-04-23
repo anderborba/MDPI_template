@@ -162,9 +162,9 @@ The Authors
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white,colframe=black,title=Changes 1]
-We agree with the Editor. We had added "Repeat-Pass" as per a reviewer's previous request, but the title the Editor suggest is better, and we have adopted it. The new title is "Fast Spatial Denoising of InSAR Interferograms via Empirical Statistical Modeling". We have edited the abstract accordingly. 
+We agree with the Editor. We had added ``Repeat-Pass" as per a reviewer's previous request, but the title the Editor suggest is better, and we have adopted it. The new title is ``Fast Spatial Denoising of InSAR Interferograms via Empirical Statistical Modeling". We have edited the abstract accordingly. 
 
-Regarding the use of "coherence image", we have added the following sentence to the abstract: "This work addresses the challenge of filtering the unwrapped phase, a process traditionally reliant on accurate coherence images to identify reliable pixels."
+Regarding the use of ``coherence image", we have added the following sentence to the abstract: ``This work addresses the challenge of filtering the unwrapped phase, a process traditionally reliant on accurate coherence images to identify reliable pixels."
 \end{tcolorbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -175,19 +175,34 @@ Lack of clear comparative discussion on which method is more suitable under diff
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white,colframe=black,title=Changes 2]
-We have concluded the Discussion section with the following paragraph: In summary, while the TcN filter is the most computationally efficient, we suggest the TcC filter as the preferred practical choice due to its superior denoising capability at a negligible additional cost. For applications necessitating a physically-based approach, the Gierull model serves as a high-performance alternative to the Enhanced Lee filter, yielding equivalent results for integer looks but with vastly improved execution speed.
+We have concluded the Discussion section with the following paragraph: 
+\begin{quote}
+In summary, while the TcN filter is the most computationally efficient, we suggest the TcC filter as the preferred practical choice due to its superior denoising capability at a negligible additional cost. For applications necessitating a physically-based approach, the Gierull model serves as a high-performance alternative to the Enhanced Lee filter, yielding equivalent results for integer looks but with vastly improved execution speed.
+\end{quote}
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vskip3em\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Comment 3]
-Missing statistical comparison between TcN/TcC and the physical model beyond runtime. The authors compare RMSE and SSIM, but these are image level metrics. They do not test whether the distribution of filtered phases from empirical models is statistically indistinguishable from that obtained with the Gierull model. A simple two sample Kolmogorov Smirnov test on the phase residuals (filtered vs reference) would strengthen the claim that empirical models “produce results as good as the physical one”. Recommend add a supplementary analysis (or a brief paragraph in Results) comparing the empirical cumulative distribution of the filtered phases (e.g., for the simulated data) with the Gierull‑based filter. If the distributions are not significantly different (p > 0.05), state that explicitly.
+Missing statistical comparison between TcN/TcC and the physical model beyond runtime. The authors compare RMSE and SSIM, but these are image level metrics. They do not test whether the distribution of filtered phases from empirical models is statistically indistinguishable from that obtained with the Gierull model. A simple two sample Kolmogorov Smirnov test on the phase residuals (filtered vs reference) would strengthen the claim that empirical models “produce results as good as the physical one”. Recommend add a supplementary analysis (or a brief paragraph in Results) comparing the empirical cumulative distribution of the filtered phases (e.g., for the simulated data) with the Gierull‑based filter. If the distributions are not significantly different (\texttt{p > 0.05}), state that explicitly.
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=white,colframe=black,title=Changes 3]
 Thank you very much for the suggestion; we agree that it will complete and add quality to the work.
 
-We performed the tests and show the results between lines 355 and 367 of the latest version of the manuscript called "R3-FastNoiseInterferometricReduction.pdf".
+We performed the tests added the following paragraphs to Section~3.1:
+\begin{quote}
+To analyze the results more consistently, the Kolmogorov-Smirnov (KS) test was applied to two filtered images, comparing TcNfilter with LInSARRFE and TcCfilter with LInSARRFE. We used the test to obtain a statistically significant measure of the phase difference between the filtered images, rather than the image-level measures used previously.
+
+The test assesses the null hypothesis $H_0$, which states that the two samples are drawn from the same distribution. 
+The results obtained were $\text{KS} = 0.1210$ for TcNfilter 
+and $\text{KS} = 0.1134$ for TcCfilter, both leading to 
+$p{\text{-value}}<10^{-6}$ and indicating the rejection of $H_0$ any practical significance level. 
+However, the maximum absolute difference between the empirical CDFs and the physical CDF based on the Gierull model is approximately \qty{12}{\percent}. 
+Altogether, the results of the hypothesis tests, combined with the analysis of the RMSE and SSIM metrics, suggest that while the empirical filters do not exactly reproduce the phase distribution of the LInSARRFE, these distributional differences are modest. 
+Furthermore, they do not result in a significant degradation of filtering quality under the tested conditions.
+\end{quote}
+
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Comment #4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -198,9 +213,15 @@ Subsections is too much, recommend to re-organized the whole manuscript. Such th
 Font size of label in Figures is small, recommend to change font size according to journal guidelines. Such as Fig.5
 \end{tcolorbox}
 \begin{tcolorbox}[colback=white,colframe=black,title=Changes 4]
-We have restructured Section 2 (Materials and Methods) by consolidating several subsections. The section is now organized into Section 2.1 (Simulated Data), Section 2.2 (SAR Images), Section 2.3 (Statistical Models and Filters; new title). To maintain clarity, only Section 2.3 retains subsections, as dictated by the technical depth of its content. We moved the previous subsection "Computational Resources" to the end of Section 2 to ensure a more logical progression of the methodology.
+We have restructured Section 2 (Materials and Methods) by consolidating several subsections. The section is now organized into Section 2.1 (Simulated Data), Section 2.2 (SAR Images), Section 2.3 (Statistical Models and Filters; new title). 
+To maintain clarity, only Section 2.3 retains subsections, as dictated by the technical depth of its content. 
+We moved the previous subsection ``Computational Resources" to the end of Section 2 to ensure a more logical progression of the methodology.
 
-We modified figures 3, 4, 5, 6, and 7. Figures 3 and 4 were completely modified. Figures 5 and 6 were reorganized, mainly by changing the position of the legend and the font size, according to the MDPI author's manual. In figure 7, we increased its size in the text. Thank you for the suggestions.
+We modified figures 3, 4, 5, 6, and 7. 
+Figures 3 and 4 were completely modified. 
+Figures 5 and 6 were reorganized, mainly by changing the position of the legend and the font size, according to the MDPI author's manual. 
+In figure 7, we increased its size in the text. 
+Thank you for the suggestions.
 \end{tcolorbox}
 
 
